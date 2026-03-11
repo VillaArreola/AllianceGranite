@@ -1,0 +1,21 @@
+---
+import reviews from "../../data/reviews.json";
+---
+
+<section id="reviews" class="bg-indigo-700/95 py-20 text-white">
+  <div class="mx-auto max-w-7xl px-6">
+    <h2 class="text-3xl font-bold md:text-4xl">Opiniones de nuestros clientes</h2>
+    <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        reviews.map((review) => (
+          <article class="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+            <p class="text-sm font-semibold">{review.author || "Cliente"}</p>
+            <p class="mt-1 text-xs text-indigo-100">{review.date || "Fecha por definir"}</p>
+            <p class="mt-4 text-sm leading-relaxed">{review.text}</p>
+            <p class="mt-4 text-xs text-indigo-100">{"*".repeat(review.rating)}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

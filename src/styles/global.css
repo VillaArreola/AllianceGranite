@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+:root {
+  --ag-bg: #f8f7f5;
+  --ag-text: #18181b;
+  --ag-muted: #4b5563;
+  --ag-primary: #8d7a49;
+  --ag-primary-dark: #6f6038;
+  --ag-surface: #ffffff;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--ag-bg);
+  color: var(--ag-text);
+}

@@ -1,0 +1,83 @@
+---
+import "../styles/global.css";
+import { siteConfig } from "../data/site";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+type Props = {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  keywords?: string[];
+  noindex?: boolean;
+  lang?: string;
+};
+
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  canonical = siteConfig.siteUrl,
+  ogImage = siteConfig.ogImage,
+  ogImageAlt = siteConfig.ogImageAlt,
+  keywords = [...siteConfig.keywords],
+  noindex = false,
+  lang = siteConfig.language
+} = Astro.props;
+
+const robots = noindex ? "noindex, nofollow" : "index, follow";
+
+const websiteSchema = {
+  "@context": "https://schema.org/",
+  "@type": "WebSite",
+  name: "Premium Granite & Quartz Kitchen Countertops | Alliance",
+  url: canonical,
+  description,
+  image: ogImage,
+  inLanguage: lang,
+  keywords
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(", ")} />
+    <meta name="robots" content={robots} />
+
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={siteConfig.siteUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteConfig.siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+
+    <link rel="icon" sizes="16x16" href={siteConfig.favicon.icon16} />
+    <link rel="icon" sizes="32x32" href={siteConfig.favicon.icon32} />
+    <link rel="icon" sizes="192x192" href={siteConfig.favicon.icon192} />
+    <link rel="apple-touch-icon" href={siteConfig.favicon.appleTouch} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  </head>
+  <body class="bg-stone-50 text-stone-900 antialiased">
+    <Navbar />
+    <slot />
+    <Footer />
+  </body>
+</html>

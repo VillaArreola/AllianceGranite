@@ -1,0 +1,42 @@
+---
+const businessCard = "/images/gallery-3.jpg";
+---
+
+<section id="about" class="bg-[#7a7060] py-20 text-white">
+  <div class="mx-auto max-w-5xl px-6">
+    <!-- Title -->
+    <h2 class="mb-10 text-center text-3xl font-bold text-stone-900 md:text-4xl">
+      About Alliance Granite &amp; Quartz
+    </h2>
+
+    <!-- Two columns -->
+    <div class="mb-12 grid gap-8 md:grid-cols-2">
+      <div>
+        <h3 class="mb-3 text-sm font-bold text-stone-900">Our Commitment to Quality</h3>
+        <p class="text-sm leading-relaxed text-stone-100">
+          At Alliance Granite &amp; Marble, we specialize in providing high-quality granite and
+          marble products. Our offerings include stunning countertops and timeless kitchen designs
+          in neutral colors that enhance any space.
+        </p>
+      </div>
+      <div>
+        <h3 class="mb-3 text-sm font-bold text-stone-900">Sustainable Sourcing and Craftsmanship</h3>
+        <p class="text-sm leading-relaxed text-stone-100">
+          We are dedicated to delivering exceptional products that combine beauty and durability.
+          Explore our extensive selection of neutral granite and white marble, crafted to meet your
+          specific design needs.
+        </p>
+      </div>
+    </div>
+
+    <!-- Business Card Image -->
+    <div class="overflow-hidden rounded-lg shadow-xl">
+      <img
+        src={businessCard}
+        alt="Alliance Granite & Quartz business card — David Villa, Founder | Owner"
+        class="w-full object-cover"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
