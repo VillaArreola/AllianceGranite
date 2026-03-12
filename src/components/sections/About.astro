@@ -29,7 +29,7 @@ const services = [
     <div class="flex flex-col items-center gap-20 md:flex-row">
 
       <!-- Left: text -->
-      <div class="md:w-1/2">
+      <div class="md:w-1/2" data-reveal>
         <p class="mb-4 text-[10px] uppercase tracking-[0.4em] text-[#c9a84c]/60">Who We Are</p>
         <h2 class="mb-8 font-serif text-4xl leading-tight md:text-6xl">
           Our Exclusive<br />
@@ -50,7 +50,7 @@ const services = [
       </div>
 
       <!-- Right: staggered images -->
-      <div class="grid grid-cols-2 gap-4 md:w-1/2">
+      <div class="grid grid-cols-2 gap-4 md:w-1/2" data-reveal data-reveal-delay="3">
         <div class="aspect-[3/4] overflow-hidden bg-white/5">
           <img
             src={images[0].src}
@@ -76,7 +76,7 @@ const services = [
 <!-- Bespoke Services -->
 <section id="services-full" class="bg-[#111111] py-32 text-white">
   <div class="mx-auto max-w-7xl px-6">
-    <div class="mb-20 text-center">
+    <div class="mb-20 text-center" data-reveal>
       <h2 class="mb-4 font-serif text-3xl md:text-5xl">Bespoke Services</h2>
       <p class="text-[10px] uppercase tracking-[0.4em] text-white/40">
         Crafting your vision into reality
@@ -84,8 +84,8 @@ const services = [
     </div>
 
     <div class="grid grid-cols-1 gap-16 md:grid-cols-3">
-      {services.map((s) => (
-        <div class="border-l border-[#c9a84c]/30 pl-8">
+      {services.map((s, i) => (
+        <div class="border-l border-[#c9a84c]/30 pl-8" data-reveal data-reveal-delay={String(i + 1)}>
           <span class="mb-4 block font-serif text-4xl text-[#c9a84c]/40">{s.n}</span>
           <h3 class="mb-4 font-serif text-xl text-white">{s.title}</h3>
           <p class="text-sm leading-relaxed text-white/50">{s.desc}</p>

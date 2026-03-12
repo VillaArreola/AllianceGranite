@@ -10,14 +10,14 @@ import { siteConfig } from "../../data/site";
   <div class="absolute inset-0 bg-black/70"></div>
 
   <div class="relative mx-auto max-w-7xl px-6">
-    <div class="mb-16 text-center">
+    <div class="mb-16 text-center" data-reveal>
       <p class="mb-4 text-[10px] uppercase tracking-[0.4em] text-[#c9a84c]/60">Visit Us</p>
       <h2 class="font-serif text-3xl text-white md:text-5xl">Our Location</h2>
     </div>
 
     <div class="grid gap-12 md:grid-cols-2 md:items-center">
       <!-- Left: info -->
-      <div class="space-y-8 text-white">
+      <div class="space-y-8 text-white" data-reveal>
         <p class="max-w-xs text-sm leading-relaxed text-white/60">
           Visit us to explore our exquisite range of marble and granite products for kitchens and
           countertops in neutral colors and whites.
@@ -41,7 +41,7 @@ import { siteConfig } from "../../data/site";
             </svg>
             <div>
               <p class="text-[10px] uppercase tracking-widest text-white/30">Phone</p>
-              <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`} class="mt-1 block text-sm text-white/70 hover:text-[#c9a84c] transition">{siteConfig.contact.phone}</a>
+              <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`} class="mt-1 block text-sm text-white/70 transition hover:text-[#c9a84c]">{siteConfig.contact.phone}</a>
             </div>
           </div>
 
@@ -51,7 +51,7 @@ import { siteConfig } from "../../data/site";
             </svg>
             <div>
               <p class="text-[10px] uppercase tracking-widest text-white/30">Email</p>
-              <a href={`mailto:${siteConfig.contact.email}`} class="mt-1 block text-sm text-white/70 hover:text-[#c9a84c] transition">{siteConfig.contact.email}</a>
+              <a href={`mailto:${siteConfig.contact.email}`} class="mt-1 block text-sm text-white/70 transition hover:text-[#c9a84c]">{siteConfig.contact.email}</a>
             </div>
           </div>
 
@@ -68,7 +68,7 @@ import { siteConfig } from "../../data/site";
       </div>
 
       <!-- Right: map -->
-      <div class="overflow-hidden border border-white/10 shadow-2xl">
+      <div class="overflow-hidden border border-white/10 shadow-2xl" data-reveal data-reveal-delay="2">
         <iframe
           title="Alliance Granite & Quartz location"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.123456789!2d-75.4444!3d40.3939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6b0e0e0e0e0e0%3A0x1234567890abcdef!2s1862%20Tollgate%20Rd%2C%20Palm%2C%20PA%2018070!5e0!3m2!1sen!2sus!4v1700000000000"
