@@ -1,42 +1,96 @@
 ---
-const businessCard = "/images/gallery-3.jpg";
+const images = [
+  { src: "/images/gallery-5.jpg", alt: "Granite countertop detail" },
+  { src: "/images/gallery-6.jpg", alt: "Marble slab installation" },
+];
+
+const services = [
+  {
+    n: "01",
+    title: "Consultation",
+    desc: "Expert advice on material selection and design integration for your kitchen or bathroom.",
+  },
+  {
+    n: "02",
+    title: "Fabrication",
+    desc: "State-of-the-art precision cutting and hand-finishing of every slab we supply.",
+  },
+  {
+    n: "03",
+    title: "Installation",
+    desc: "Seamless integration by our experienced team — from templating to final polish.",
+  },
+];
 ---
 
-<section id="about" class="bg-[#7a7060] py-20 text-white">
-  <div class="mx-auto max-w-5xl px-6">
-    <!-- Title -->
-    <h2 class="mb-10 text-center text-3xl font-bold text-stone-900 md:text-4xl">
-      About Alliance Granite &amp; Quartz
-    </h2>
+<!-- Collections -->
+<section id="about" class="bg-[#0d0d0d] py-32 text-white">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="flex flex-col items-center gap-20 md:flex-row">
 
-    <!-- Two columns -->
-    <div class="mb-12 grid gap-8 md:grid-cols-2">
-      <div>
-        <h3 class="mb-3 text-sm font-bold text-stone-900">Our Commitment to Quality</h3>
-        <p class="text-sm leading-relaxed text-stone-100">
-          At Alliance Granite &amp; Marble, we specialize in providing high-quality granite and
-          marble products. Our offerings include stunning countertops and timeless kitchen designs
-          in neutral colors that enhance any space.
+      <!-- Left: text -->
+      <div class="md:w-1/2">
+        <p class="mb-4 text-[10px] uppercase tracking-[0.4em] text-[#c9a84c]/60">Who We Are</p>
+        <h2 class="mb-8 font-serif text-4xl leading-tight md:text-6xl">
+          Our Exclusive<br />
+          <span class="italic text-[#c9a84c]/90">Collections</span>
+        </h2>
+        <p class="mb-10 max-w-md text-sm leading-relaxed text-white/50">
+          At Alliance Granite &amp; Quartz, we specialize in providing high-quality granite, quartz
+          and marble surfaces. Our offerings include stunning countertops and timeless kitchen
+          designs in neutral colors that enhance any space. Every slab is hand-selected for beauty
+          and durability.
         </p>
+        <a
+          href="#contact"
+          class="border border-white/20 px-8 py-3 text-[10px] uppercase tracking-[0.3em] text-white transition hover:border-[#c9a84c] hover:text-[#c9a84c]"
+        >
+          View Full Catalog
+        </a>
       </div>
-      <div>
-        <h3 class="mb-3 text-sm font-bold text-stone-900">Sustainable Sourcing and Craftsmanship</h3>
-        <p class="text-sm leading-relaxed text-stone-100">
-          We are dedicated to delivering exceptional products that combine beauty and durability.
-          Explore our extensive selection of neutral granite and white marble, crafted to meet your
-          specific design needs.
-        </p>
+
+      <!-- Right: staggered images -->
+      <div class="grid grid-cols-2 gap-4 md:w-1/2">
+        <div class="aspect-[3/4] overflow-hidden bg-white/5">
+          <img
+            src={images[0].src}
+            alt={images[0].alt}
+            class="h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
+            loading="lazy"
+          />
+        </div>
+        <div class="mt-12 aspect-[3/4] overflow-hidden bg-white/5">
+          <img
+            src={images[1].src}
+            alt={images[1].alt}
+            class="h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
+            loading="lazy"
+          />
+        </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Bespoke Services -->
+<section id="services-full" class="bg-[#111111] py-32 text-white">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="mb-20 text-center">
+      <h2 class="mb-4 font-serif text-3xl md:text-5xl">Bespoke Services</h2>
+      <p class="text-[10px] uppercase tracking-[0.4em] text-white/40">
+        Crafting your vision into reality
+      </p>
     </div>
 
-    <!-- Business Card Image -->
-    <div class="overflow-hidden rounded-lg shadow-xl">
-      <img
-        src={businessCard}
-        alt="Alliance Granite & Quartz business card — David Villa, Founder | Owner"
-        class="w-full object-cover"
-        loading="lazy"
-      />
+    <div class="grid grid-cols-1 gap-16 md:grid-cols-3">
+      {services.map((s) => (
+        <div class="border-l border-[#c9a84c]/30 pl-8">
+          <span class="mb-4 block font-serif text-4xl text-[#c9a84c]/40">{s.n}</span>
+          <h3 class="mb-4 font-serif text-xl text-white">{s.title}</h3>
+          <p class="text-sm leading-relaxed text-white/50">{s.desc}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>

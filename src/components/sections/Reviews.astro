@@ -2,20 +2,51 @@
 import reviews from "../../data/reviews.json";
 ---
 
-<section id="reviews" class="bg-indigo-700/95 py-20 text-white">
+<section id="reviews" class="bg-[#0d0d0d] py-32 text-white">
   <div class="mx-auto max-w-7xl px-6">
-    <h2 class="text-3xl font-bold md:text-4xl">Opiniones de nuestros clientes</h2>
-    <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+    <div class="mb-16 text-center">
+      <h2 class="mb-4 font-serif text-3xl md:text-5xl">What Our Clients Say</h2>
+      <div class="mx-auto h-px w-12 bg-[#c9a84c]/40"></div>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {
         reviews.map((review) => (
-          <article class="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
-            <p class="text-sm font-semibold">{review.author || "Cliente"}</p>
-            <p class="mt-1 text-xs text-indigo-100">{review.date || "Fecha por definir"}</p>
-            <p class="mt-4 text-sm leading-relaxed">{review.text}</p>
-            <p class="mt-4 text-xs text-indigo-100">{"*".repeat(review.rating)}</p>
+          <article class="border border-white/5 bg-[#111111] p-8">
+            <!-- Stars -->
+            <div class="mb-4 flex gap-0.5">
+              {Array.from({ length: review.rating }).map(() => (
+                <span class="text-[#c9a84c] text-sm">★</span>
+              ))}
+            </div>
+            <p class="mb-6 text-sm leading-relaxed text-white/60 italic">
+              &ldquo;{review.text}&rdquo;
+            </p>
+            <div class="border-t border-white/5 pt-4">
+              <p class="text-[11px] font-semibold uppercase tracking-widest text-white/80">
+                {review.author || "Verified Customer"}
+              </p>
+              <p class="mt-1 text-[10px] uppercase tracking-widest text-white/30">
+                {review.date || "Google Review"}
+              </p>
+            </div>
           </article>
         ))
       }
     </div>
+
+    <!-- CTA -->
+    <div class="mt-14 text-center">
+      <a
+        href="https://www.google.com/search?q=Alliance+Granite+%26+Quartz+reviews"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="border border-white/20 px-10 py-3 text-[10px] uppercase tracking-[0.3em] text-white/60 transition hover:border-[#c9a84c] hover:text-[#c9a84c]"
+      >
+        See All Reviews on Google
+      </a>
+    </div>
+
   </div>
 </section>
