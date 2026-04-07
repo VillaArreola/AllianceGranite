@@ -50,10 +50,10 @@ const quickLinks = [
 
 <main
   id="floating-overview"
-  class="relative z-20 mx-auto max-w-[1100px] -mt-48 mb-20 px-4 md:px-0 will-change-transform"
+  class="relative z-20 mx-auto max-w-[1100px] -mt-36 mb-0 px-4 md:-mt-44 md:px-0 will-change-transform"
   style="transition: transform 0.1s linear;"
 >
-  <div class="border border-white/5 bg-[#111111] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)]">
+  <div class="relative z-10 border border-white/5 bg-[#111111] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)]">
 
     <!-- Why Choose Us -->
     <section class="border-b border-white/5 px-6 py-10 md:px-10">
@@ -80,7 +80,7 @@ const quickLinks = [
     </section>
 
     <!-- Featured Stones -->
-    <section id="services" class="border-b border-white/5 px-6 py-10 md:px-10">
+    <section id="services" class="relative px-6 py-10 pb-16 md:px-10 md:pb-20">
       <div class="mb-8 text-center">
         <h2 class="mb-2 font-serif text-xl tracking-widest text-[#c9a84c]/80 md:text-2xl">
           Featured Stones
@@ -113,10 +113,19 @@ const quickLinks = [
           </div>
         ))}
       </div>
+
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent via-black/35 to-[#0d0d0d]"
+      ></div>
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute -bottom-6 left-8 right-8 h-10 bg-black/45 blur-2xl"
+      ></div>
     </section>
 
     <!-- Mini footer inside container -->
-    <div class="bg-[#0d0d0d] px-6 py-12 md:px-12">
+    <div class="relative -mt-8 bg-[#0d0d0d] px-6 pb-12 pt-14 md:-mt-10 md:px-12 md:pt-16">
       <div class="grid grid-cols-1 items-start gap-10 md:grid-cols-3">
 
         <!-- Quick Links -->
@@ -199,13 +208,39 @@ const quickLinks = [
 
     window.addEventListener("scroll", () => {
       const scrollY = window.scrollY;
+      const maxLift = window.innerWidth >= 768 ? 26 : 16;
 
       // Only apply while the element is in the "overlap" zone above its natural position
       if (scrollY <= startOffset + el.offsetHeight) {
-        // Move up at 0.4× scroll speed — soft parallax
-        const translateY = -scrollY * 0.4;
+        // Keep a clear floating feel, capped so the gap remains controlled
+        const translateY = -Math.min(scrollY * 0.13, maxLift);
         el.style.transform = `translateY(${translateY}px)`;
       }
     }, { passive: true });
   }
 </script>
+
+<style>
+  #floating-overview::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px;
+    height: 84px;
+    pointer-events: none;
+    z-index: 1;
+    background:
+      radial-gradient(80% 56px at 50% 0, rgba(0, 0, 0, 0.24), transparent 70%),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent 72%);
+  }
+
+  @media (min-width: 768px) {
+    #floating-overview::before {
+      height: 108px;
+      background:
+        radial-gradient(78% 72px at 50% 0, rgba(0, 0, 0, 0.26), transparent 72%),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.22), transparent 72%);
+    }
+  }
+</style>

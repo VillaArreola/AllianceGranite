@@ -21,9 +21,36 @@ body {
 }
 
 body {
+  position: relative;
   font-family: "DM Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: var(--ag-bg);
+  background-color: #f3eee2;
+  background-image:
+    linear-gradient(rgba(8, 8, 8, 0.35), rgba(8, 8, 8, 0.35)),
+    url("/images/calacatabg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--ag-text);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 18% 12%, rgba(255, 255, 255, 0.13), transparent 42%),
+    radial-gradient(ellipse at 82% 86%, rgba(0, 0, 0, 0.18), transparent 48%),
+    linear-gradient(120deg, rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.04));
+  mix-blend-mode: soft-light;
+  animation: marbleFilmShift 16s ease-in-out infinite alternate;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Scroll Reveal ─────────────────────────────────────────── */
@@ -55,4 +82,19 @@ body {
 
 .hero-anim {
   animation: heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes marbleFilmShift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate3d(-1.2%, 0.8%, 0) scale(1.03);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(1%, -0.7%, 0) scale(1.02);
+    opacity: 0.85;
+  }
 }
