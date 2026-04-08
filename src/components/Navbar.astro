@@ -5,12 +5,11 @@ const pathname = Astro.url.pathname;
 
 const navLinks = [
   { href: "/",         label: "Home",        match: pathname === "/" },
-  { href: "/#about",   label: "About",       match: pathname === "/" },
   { href: "/collections", label: "Collections", match: pathname === "/collections" },
+  { href: "/services", label: "Services",    match: pathname === "/services" },
   { href: "/portfolio", label: "Portfolio",  match: pathname.startsWith("/portfolio") },
-  { href: "/stones",   label: "Stones",      match: pathname.startsWith("/stones") },
-  { href: "/#reviews", label: "Reviews",     match: pathname === "/" },
-  { href: "/#contact", label: "Contact",     match: pathname === "/" },
+  { href: "/contact",  label: "Contact",     match: pathname === "/contact" },
+  { href: "/about",    label: "About",       match: pathname === "/about" },
 ];
 ---
 
@@ -158,7 +157,6 @@ const navLinks = [
   #mobile-menu.is-open .mobile-nav-link:nth-child(4) { transition-delay: 0.32s; }
   #mobile-menu.is-open .mobile-nav-link:nth-child(5) { transition-delay: 0.40s; }
   #mobile-menu.is-open .mobile-nav-link:nth-child(6) { transition-delay: 0.48s; }
-  #mobile-menu.is-open .mobile-nav-link:nth-child(7) { transition-delay: 0.56s; }
 </style>
 
 <script>

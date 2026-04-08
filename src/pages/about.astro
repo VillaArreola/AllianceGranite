@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "About | Alliance Granite & Quartz";
+const pageDescription =
+  "Learn about Alliance Granite & Quartz, our approach to material selection, fabrication quality, and local project support.";
+const canonical = "https://www.alliancegranitequartz.com/about";
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <main class="bg-[#0b0b0b] pt-28 text-white">
+    <section class="relative overflow-hidden border-b border-white/10 bg-[#111111] py-24">
+      <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 16% 20%, rgba(201,168,76,0.26), transparent 55%), radial-gradient(circle at 84% 14%, rgba(255,255,255,0.1), transparent 45%);"></div>
+      <div class="relative mx-auto max-w-7xl px-6 text-center" data-reveal>
+        <p class="mb-4 text-[10px] uppercase tracking-[0.35em] text-[#c9a84c]/80">About Us</p>
+        <h1 class="mx-auto max-w-4xl font-serif text-4xl leading-tight md:text-6xl">
+          Local Team,
+          <span class="text-[#c9a84c]"> Lasting Craftsmanship</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base">
+          We help homeowners and builders turn design ideas into durable, beautiful stone installations with clear communication from start to finish.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-6 py-20">
+      <div class="grid gap-8 md:grid-cols-2">
+        <article class="border border-white/10 bg-[#121212] p-8" data-reveal>
+          <p class="mb-3 text-[10px] uppercase tracking-[0.3em] text-[#c9a84c]/80">What We Do</p>
+          <h2 class="font-serif text-3xl">Stone Surfaces With Purpose</h2>
+          <p class="mt-4 text-sm leading-relaxed text-white/65">
+            Alliance Granite & Quartz specializes in granite, quartz, and marble solutions for kitchens, islands, vanities, and custom applications. Every project is planned for real-world use, not just appearance.
+          </p>
+        </article>
+
+        <article class="border border-white/10 bg-[#101010] p-8" data-reveal data-reveal-delay="2">
+          <p class="mb-3 text-[10px] uppercase tracking-[0.3em] text-[#c9a84c]/80">How We Work</p>
+          <h2 class="font-serif text-3xl">Simple, Transparent Process</h2>
+          <p class="mt-4 text-sm leading-relaxed text-white/65">
+            We guide material selection, complete precise templating and fabrication, and execute careful installation with responsive local support throughout the project timeline.
+          </p>
+          <a
+            href="/contact"
+            class="mt-8 inline-block border border-[#c9a84c] px-8 py-3 text-[10px] uppercase tracking-[0.3em] text-white transition hover:bg-[#c9a84c] hover:text-stone-900"
+          >
+            Get a Quote
+          </a>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>

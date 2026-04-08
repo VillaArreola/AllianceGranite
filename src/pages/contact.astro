@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { siteConfig } from "../data/site";
+
+const pageTitle = "Contact | Alliance Granite & Quartz";
+const pageDescription =
+  "Contact Alliance Granite & Quartz for quotes, project guidance, and discovery calls across the greater Philadelphia area.";
+const canonical = "https://www.alliancegranitequartz.com/contact";
+
+const digits = siteConfig.contact.phone.replace(/\D/g, "");
+const whatsappNumber = digits.length === 10 ? `1${digits}` : digits;
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi Alliance Granite & Quartz, I want to discuss my project and schedule a discovery call.")}`;
+const mailDiscovery = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent("Discovery Call Request")}`;
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <main class="bg-[#0b0b0b] pt-28 text-white">
+    <section class="relative overflow-hidden border-b border-white/10 bg-[#111111] py-24">
+      <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 15% 20%, rgba(201,168,76,0.26), transparent 52%), radial-gradient(circle at 84% 16%, rgba(255,255,255,0.12), transparent 45%);"></div>
+      <div class="relative mx-auto max-w-7xl px-6 text-center" data-reveal>
+        <p class="mb-4 text-[10px] uppercase tracking-[0.35em] text-[#c9a84c]/80">Contact</p>
+        <h1 class="mx-auto max-w-4xl font-serif text-4xl leading-tight md:text-6xl">
+          Let&apos;s Talk About
+          <span class="text-[#c9a84c]"> Your Project</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base">
+          Quick answers, clear guidance, and a simple next step to move your kitchen, island, vanity, or countertop project forward.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-6 py-20">
+      <div class="grid gap-6 md:grid-cols-2">
+        <article class="border border-white/10 bg-[#121212] p-8" data-reveal>
+          <p class="mb-3 text-[10px] uppercase tracking-[0.3em] text-[#c9a84c]/80">Quick Contact</p>
+          <h2 class="font-serif text-3xl">Reach Us Directly</h2>
+          <ul class="mt-6 space-y-3 text-sm text-white/70">
+            <li>
+              <a href={`tel:${digits}`} class="transition hover:text-[#c9a84c]">{siteConfig.contact.phone}</a>
+            </li>
+            <li>
+              <a href={`mailto:${siteConfig.contact.email}`} class="transition hover:text-[#c9a84c]">{siteConfig.contact.email}</a>
+            </li>
+            <li>{siteConfig.contact.address}</li>
+            <li>{siteConfig.contact.hours}</li>
+          </ul>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-8 inline-block border border-[#c9a84c] px-8 py-3 text-[10px] uppercase tracking-[0.3em] text-white transition hover:bg-[#c9a84c] hover:text-stone-900"
+          >
+            Message on WhatsApp
+          </a>
+        </article>
+
+        <article id="discovery-call" class="border border-white/10 bg-[#101010] p-8" data-reveal data-reveal-delay="2">
+          <p class="mb-3 text-[10px] uppercase tracking-[0.3em] text-[#c9a84c]/80">Discovery Call</p>
+          <h2 class="font-serif text-3xl">Book a 15-Minute Project Call</h2>
+          <p class="mt-4 text-sm leading-relaxed text-white/60">
+            We review your space, timeline, material direction, and next steps. For now, request the call via WhatsApp or email. Later we can connect a direct Meet scheduler.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border border-[#c9a84c] px-6 py-3 text-[10px] uppercase tracking-[0.3em] text-white transition hover:bg-[#c9a84c] hover:text-stone-900"
+            >
+              Start on WhatsApp
+            </a>
+            <a
+              href={mailDiscovery}
+              class="border border-white/20 px-6 py-3 text-[10px] uppercase tracking-[0.3em] text-white/75 transition hover:border-[#c9a84c] hover:text-[#c9a84c]"
+            >
+              Request by Email
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>

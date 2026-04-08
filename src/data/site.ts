@@ -17,7 +17,7 @@ export const siteConfig = {
   contact: {
     phone: "267 320 2113",
     email: "contact@alliancegranitequartz.com",
-    address: "1862 Tollgate Rd, Palm  PA 18070",
+    address: "1862 Tollgate Rd Unit 3A, Palm, PA 18070",
     hours: "Mon-Sat 9am"
   },
   social: {

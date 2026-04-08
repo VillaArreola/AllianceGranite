@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "Terms | Alliance Granite & Quartz";
+const pageDescription =
+  "Terms and conditions for using Alliance Granite & Quartz website, quotes, and project-related communications.";
+const canonical = "https://www.alliancegranitequartz.com/terms";
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <main class="bg-[#0b0b0b] pt-28 text-white">
+    <section class="mx-auto max-w-4xl px-6 py-20" data-reveal>
+      <p class="mb-4 text-[10px] uppercase tracking-[0.35em] text-[#c9a84c]/80">Terms</p>
+      <h1 class="font-serif text-4xl md:text-5xl">Terms &amp; Conditions</h1>
+      <p class="mt-4 text-sm text-white/55">Last updated: April 7, 2026</p>
+
+      <div class="mt-10 space-y-8 text-sm leading-relaxed text-white/70">
+        <section>
+          <h2 class="mb-2 font-serif text-2xl text-white">Website Use</h2>
+          <p>
+            Information on this website is provided for general guidance regarding products and services. Final scope, pricing, and scheduling are defined in project-specific quotes and agreements.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-2 font-serif text-2xl text-white">Quotes and Project Terms</h2>
+          <p>
+            Material availability, lead times, and installation windows may vary. Quotes are subject to verification after measurements, jobsite conditions, and final material selection.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-2 font-serif text-2xl text-white">Liability</h2>
+          <p>
+            We strive for accuracy and quality in all communications and work. Any obligations are governed by signed project agreements and applicable law.
+          </p>
+        </section>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "Policies | Alliance Granite & Quartz";
+const pageDescription =
+  "Privacy and communication policies for Alliance Granite & Quartz website visitors and project inquiries.";
+const canonical = "https://www.alliancegranitequartz.com/policies";
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <main class="bg-[#0b0b0b] pt-28 text-white">
+    <section class="mx-auto max-w-4xl px-6 py-20" data-reveal>
+      <p class="mb-4 text-[10px] uppercase tracking-[0.35em] text-[#c9a84c]/80">Policies</p>
+      <h1 class="font-serif text-4xl md:text-5xl">Privacy &amp; Communication Policies</h1>
+      <p class="mt-4 text-sm text-white/55">Last updated: April 7, 2026</p>
+
+      <div class="mt-10 space-y-8 text-sm leading-relaxed text-white/70">
+        <section>
+          <h2 class="mb-2 font-serif text-2xl text-white">Information We Receive</h2>
+          <p>
+            We may collect contact details you share through forms, calls, email, or messaging channels to respond to your request and coordinate project discussions.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-2 font-serif text-2xl text-white">How We Use Information</h2>
+          <p>
+            Information is used to provide quotes, scheduling updates, and project communication. We do not sell personal information.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-2 font-serif text-2xl text-white">Contact Preferences</h2>
+          <p>
+            You can request updates by phone, email, or messaging. If you prefer not to receive follow-ups, contact us and we will honor your request.
+          </p>
+        </section>
+      </div>
+    </section>
+  </main>
+</Layout>
