@@ -1,0 +1,89 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { stones } from "../../data/catalog";
+
+const pageTitle = "Stones Catalog | Alliance Granite & Quartz";
+const pageDescription =
+  "Browse our granite, quartz and marble catalog with premium surfaces selected for kitchens, baths and custom installations.";
+
+const canonical = "https://www.alliancegranitequartz.com/stones";
+
+const groupedStones = {
+  Granite: stones.filter((stone) => stone.type === "Granite"),
+  Quartz: stones.filter((stone) => stone.type === "Quartz"),
+  Marble: stones.filter((stone) => stone.type === "Marble")
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <main class="bg-[#0b0b0b] pt-28 text-white">
+    <section class="relative border-b border-white/10 bg-[#101010] py-24">
+      <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(circle at 75% 20%, rgba(201,168,76,0.22), transparent 45%), radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1), transparent 45%);"></div>
+      <div class="relative mx-auto max-w-7xl px-6" data-reveal>
+        <p class="mb-4 text-[10px] uppercase tracking-[0.35em] text-[#c9a84c]/80">Material Library</p>
+        <h1 class="max-w-4xl font-serif text-4xl leading-tight md:text-6xl">
+          Stones Selected for
+          <span class="text-[#c9a84c]"> Performance and Presence</span>
+        </h1>
+        <p class="mt-6 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base">
+          From expressive granites to soft quartz whites, every slab below is selected for beauty,
+          fabrication quality and long-term daily use.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-6 py-20">
+      <div class="mb-12 flex flex-wrap items-center gap-3" data-reveal>
+        <a href="#granite" class="border border-white/20 px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-white/70 transition hover:border-[#c9a84c] hover:text-[#c9a84c]">Granite</a>
+        <a href="#quartz" class="border border-white/20 px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-white/70 transition hover:border-[#c9a84c] hover:text-[#c9a84c]">Quartz</a>
+        <a href="#marble" class="border border-white/20 px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-white/70 transition hover:border-[#c9a84c] hover:text-[#c9a84c]">Marble</a>
+      </div>
+
+      {Object.entries(groupedStones).map(([type, list], sectionIndex) => (
+        <section id={type.toLowerCase()} class="mb-16" data-reveal data-reveal-delay={String(sectionIndex + 1)}>
+          <div class="mb-8 flex items-end justify-between border-b border-white/10 pb-4">
+            <h2 class="font-serif text-3xl md:text-4xl">{type}</h2>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-white/40">{list.length} options</p>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {list.map((stone, cardIndex) => (
+              <article class="group overflow-hidden border border-white/10 bg-[#121212]" data-reveal data-reveal-delay={String((cardIndex % 4) + 1)}>
+                <a href={`/stones/${stone.slug}`}>
+                  <div class="aspect-square overflow-hidden">
+                    <img
+                      src={stone.image}
+                      alt={stone.name}
+                      class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="space-y-3 p-5">
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-[#c9a84c]/80">{stone.origin}</p>
+                    <h3 class="font-serif text-2xl leading-tight">{stone.name}</h3>
+                    <p class="text-sm text-white/55">{stone.description}</p>
+                    <p class="text-[10px] uppercase tracking-[0.24em] text-white/45">Tone: {stone.tone}</p>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <div class="mt-16 border border-white/10 bg-[#111111] p-8 text-center" data-reveal>
+        <p class="mb-3 text-[10px] uppercase tracking-[0.35em] text-[#c9a84c]/80">Project support</p>
+        <h3 class="font-serif text-3xl md:text-4xl">Need help picking the right slab?</h3>
+        <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/60">
+          Share dimensions, style references and target timeline. We will suggest options that fit both design and functionality.
+        </p>
+        <a
+          href="/#contact"
+          class="mt-8 inline-block border border-[#c9a84c] px-8 py-3 text-[10px] uppercase tracking-[0.3em] text-white transition hover:bg-[#c9a84c] hover:text-stone-900"
+        >
+          Request Guidance
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

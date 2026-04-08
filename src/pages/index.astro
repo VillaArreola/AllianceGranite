@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/sections/Hero.astro";
 import FloatingOverview from "../components/sections/FloatingOverview.astro";
+import FeaturedProjectsHome from "../components/sections/FeaturedProjectsHome.astro";
 import About from "../components/sections/About.astro";
 import Reviews from "../components/sections/Reviews.astro";
 import ContactForm from "../components/sections/ContactForm.astro";
@@ -10,7 +11,10 @@ import ContactForm from "../components/sections/ContactForm.astro";
 <Layout>
   <main>
     <Hero />
-    <FloatingOverview />
+    <section class="bg-[#242424]">
+      <FloatingOverview />
+    </section>
+    <FeaturedProjectsHome />
     <About />
     <Reviews />
     <ContactForm />

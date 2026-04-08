@@ -1,0 +1,53 @@
+---
+import { getFeaturedProjects } from "../../data/portfolio";
+
+const featuredProjects = getFeaturedProjects().slice(0, 2);
+---
+
+<section id="featured-projects" class="bg-[#101010] py-24 text-white">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between" data-reveal>
+      <div>
+        <p class="mb-3 text-[10px] uppercase tracking-[0.35em] text-[#c9a84c]/80">Featured Projects</p>
+        <h2 class="font-serif text-3xl leading-tight md:text-5xl">
+          Real Homes,
+          <span class="text-[#c9a84c]"> Real Installations</span>
+        </h2>
+      </div>
+      <a
+        href="/portfolio"
+        class="inline-flex items-center gap-3 border border-white/20 px-6 py-2 text-[10px] uppercase tracking-[0.28em] text-white/70 transition hover:border-[#c9a84c] hover:text-[#c9a84c]"
+      >
+        View Full Portfolio
+        <span aria-hidden="true">-></span>
+      </a>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2">
+      {featuredProjects.map((project, index) => (
+        <article class="group overflow-hidden border border-white/10 bg-[#121212]" data-reveal data-reveal-delay={String(index + 1)}>
+          <a href={`/portfolio/${project.slug}`}>
+            <div class="relative aspect-video overflow-hidden">
+              <img
+                src={project.heroImage}
+                alt={project.title}
+                class="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent"></div>
+              <div class="absolute bottom-4 left-4">
+                <p class="text-[10px] uppercase tracking-[0.3em] text-[#c9a84c]/90">{project.location}</p>
+                <p class="mt-1 text-[10px] uppercase tracking-[0.3em] text-white/60">{project.completedAt}</p>
+              </div>
+            </div>
+            <div class="space-y-3 p-7">
+              <h3 class="font-serif text-3xl leading-tight">{project.title}</h3>
+              <p class="text-[11px] uppercase tracking-[0.25em] text-[#c9a84c]/70">{project.tagline}</p>
+              <p class="text-sm leading-relaxed text-white/60">{project.summary}</p>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

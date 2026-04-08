@@ -1,0 +1,62 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getFeaturedProjects } from "../../data/portfolio";
+
+const pageTitle = "Portfolio | Alliance Granite & Quartz";
+const pageDescription =
+  "Highlighted installations from recent kitchen, bath and entertaining projects across the Philadelphia area.";
+const canonical = "https://www.alliancegranitequartz.com/portfolio";
+
+const featuredProjects = getFeaturedProjects();
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <main class="bg-[#0b0b0b] pt-28 text-white">
+    <section class="relative overflow-hidden border-b border-white/10 bg-[#111111] py-24">
+      <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 16% 24%, rgba(201,168,76,0.26), transparent 55%), radial-gradient(circle at 82% 14%, rgba(255,255,255,0.12), transparent 45%);"></div>
+      <div class="relative mx-auto max-w-7xl px-6 text-center" data-reveal>
+        <p class="mb-4 text-[10px] uppercase tracking-[0.35em] text-[#c9a84c]/80">Featured Work</p>
+        <h1 class="mx-auto max-w-4xl font-serif text-4xl leading-tight md:text-6xl">
+          Recent Projects,
+          <span class="text-[#c9a84c]"> Crafted to Last</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base">
+          A selected portfolio of completed installations, from waterfall kitchens to custom bath suites and modern entertaining spaces.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-6 py-24">
+      <div class="grid gap-8 lg:grid-cols-2">
+        {featuredProjects.map((project, index) => (
+          <article class="group overflow-hidden border border-white/10 bg-[#121212]" data-reveal data-reveal-delay={String((index % 4) + 1)}>
+            <a href={`/portfolio/${project.slug}`}>
+              <div class="relative aspect-video overflow-hidden">
+                <img
+                  src={project.heroImage}
+                  alt={project.title}
+                  class="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-4 left-4">
+                  <p class="text-[10px] uppercase tracking-[0.3em] text-[#c9a84c]/90">{project.location}</p>
+                  <p class="mt-1 text-[10px] uppercase tracking-[0.3em] text-white/60">Completed {project.completedAt}</p>
+                </div>
+              </div>
+              <div class="space-y-4 p-7">
+                <h2 class="font-serif text-3xl">{project.title}</h2>
+                <p class="text-[11px] uppercase tracking-[0.25em] text-[#c9a84c]/70">{project.tagline}</p>
+                <p class="text-sm leading-relaxed text-white/60">{project.summary}</p>
+                <span class="inline-flex items-center gap-3 border border-white/20 px-5 py-2 text-[10px] uppercase tracking-[0.28em] text-white/70 transition group-hover:border-[#c9a84c] group-hover:text-[#c9a84c]">
+                  View Project
+                  <span aria-hidden="true">-></span>
+                </span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

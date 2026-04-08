@@ -1,5 +1,15 @@
 ---
 import { siteConfig } from "../data/site";
+
+const footerLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/#about" },
+  { label: "Collections", href: "/collections" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Stones", href: "/stones" },
+  { label: "Reviews", href: "/#reviews" },
+  { label: "Contact", href: "/#contact" }
+];
 ---
 
 <footer class="bg-[#080808] px-6 py-20 text-white">
@@ -33,9 +43,9 @@ import { siteConfig } from "../data/site";
       <div>
         <p class="mb-5 text-[10px] uppercase tracking-[0.3em] text-white/30">Navigation</p>
         <ul class="space-y-3 text-sm text-white/50">
-          {["Home", "About", "Collections", "Services", "Reviews", "Contact"].map((link) => (
+          {footerLinks.map((link) => (
             <li>
-              <a href={`#${link.toLowerCase()}`} class="transition hover:text-[#c9a84c]">{link}</a>
+              <a href={link.href} class="transition hover:text-[#c9a84c]">{link.label}</a>
             </li>
           ))}
         </ul>

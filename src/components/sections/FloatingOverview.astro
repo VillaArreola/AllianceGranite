@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../../data/site";
+import { stones as catalogStones } from "../../data/catalog";
 
 const features = [
   {
@@ -33,12 +34,7 @@ const features = [
   },
 ];
 
-const stones = [
-  { name: "Calacatta Gold Marble", img: "/images/gallery-1.jpg" },
-  { name: "Black Galaxy Granite",  img: "/images/gallery-2.jpg" },
-  { name: "Carrara Quartz",        img: "/images/gallery-3.jpg" },
-  { name: "Blue Bahia Granite",    img: "/images/gallery-4.jpg" },
-];
+const stones = catalogStones;
 
 const quickLinks = [
   { label: "Home",     href: "#hero" },
@@ -50,7 +46,7 @@ const quickLinks = [
 
 <main
   id="floating-overview"
-  class="relative z-20 mx-auto max-w-[1100px] -mt-48 mb-20 px-4 md:px-0 will-change-transform"
+  class="relative z-20 mx-auto max-w-[1100px] -mt-48 px-4 md:px-0 will-change-transform"
   style="transition: transform 0.1s linear;"
 >
   <div class="border border-white/5 bg-[#111111] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)]">
@@ -90,10 +86,10 @@ const quickLinks = [
 
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stones.map((stone, i) => (
-          <div class="group" data-reveal data-reveal-delay={String(i + 1)}>
+          <div class={`group stone-card ${i >= 4 ? "hidden" : ""}`} data-reveal data-reveal-delay={String((i % 4) + 1)}>
             <div class="mb-4 aspect-square overflow-hidden border border-white/5">
               <img
-                src={stone.img}
+                src={stone.image}
                 alt={stone.name}
                 class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 loading="lazy"
@@ -104,7 +100,7 @@ const quickLinks = [
                 {stone.name}
               </h3>
               <a
-                href="#contact"
+                href={`/stones/${stone.slug}`}
                 class="border border-white/10 px-4 py-1.5 text-[8px] uppercase tracking-[0.3em] text-white/50 transition-colors hover:border-[#c9a84c]/50 hover:text-[#c9a84c]"
               >
                 View Details
@@ -194,6 +190,29 @@ const quickLinks = [
 
 <script>
   const el = document.getElementById("floating-overview");
+
+  const randomizeFeaturedStones = () => {
+    if (!el) return;
+
+    const cards = Array.from(el.querySelectorAll(".stone-card"));
+    if (cards.length <= 4) return;
+
+    const shuffled = [...cards];
+    for (let i = shuffled.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    cards.forEach((card) => card.classList.add("hidden"));
+
+    shuffled.slice(0, 4).forEach((card, index) => {
+      card.classList.remove("hidden");
+      card.setAttribute("data-reveal-delay", String(index + 1));
+    });
+  };
+
+  randomizeFeaturedStones();
+
   if (el) {
     const startOffset = el.offsetTop; // position where it sits initially
 
