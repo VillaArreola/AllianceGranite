@@ -28,15 +28,48 @@ const {
 
 const robots = noindex ? "noindex, nofollow" : "index, follow";
 
+const absoluteOgImage = ogImage.startsWith("http")
+  ? ogImage
+  : new URL(ogImage, siteConfig.siteUrl).href;
+
+const normalizedPhone = `+1${siteConfig.contact.phone.replace(/\D/g, "")}`;
+
 const websiteSchema = {
   "@context": "https://schema.org/",
   "@type": "WebSite",
-  name: "Premium Granite & Quartz Kitchen Countertops | Alliance",
-  url: canonical,
+  name: siteConfig.siteName,
+  url: siteConfig.siteUrl,
   description,
-  image: ogImage,
+  image: absoluteOgImage,
   inLanguage: lang,
   keywords
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.siteName,
+  url: siteConfig.siteUrl,
+  logo: new URL(siteConfig.favicon.icon192, siteConfig.siteUrl).href,
+  sameAs: [siteConfig.social.facebook, siteConfig.social.instagram]
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  name: siteConfig.siteName,
+  url: siteConfig.siteUrl,
+  image: absoluteOgImage,
+  telephone: normalizedPhone,
+  email: siteConfig.contact.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1862 Tollgate Rd Unit 3A",
+    addressLocality: "Palm",
+    addressRegion: "PA",
+    postalCode: "18070",
+    addressCountry: "US"
+  }
 };
 ---
 
@@ -56,16 +89,18 @@ const websiteSchema = {
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={siteConfig.siteName} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={absoluteOgImage} />
     <meta property="og:image:alt" content={ogImageAlt} />
 
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonical} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={absoluteOgImage} />
     <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <link rel="icon" sizes="16x16" href={siteConfig.favicon.icon16} />
@@ -79,6 +114,8 @@ const websiteSchema = {
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   </head>
   <body class="bg-stone-50 text-stone-900 antialiased">
     <Navbar />
