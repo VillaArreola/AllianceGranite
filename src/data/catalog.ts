@@ -32,7 +32,7 @@ export const collections: Collection[] = [
     tagline: "Natural movement and timeless structure",
     description:
       "A curated granite line with dramatic veining and high durability for premium kitchens and social spaces.",
-    image: "/images/gallery-7.jpg",
+    image: "/images/collections/ViscountWhite.webp",
     stoneSlugs: ["black-galaxy", "blue-bahia", "imperial-silver"]
   },
   {
@@ -42,7 +42,7 @@ export const collections: Collection[] = [
     tagline: "Engineered calm with refined elegance",
     description:
       "Low-porosity quartz surfaces designed for modern lifestyles, with soft whites and controlled patterns.",
-    image: "/images/gallery-3.jpg",
+    image: "/images/collections/Metal-rays.webp",
     stoneSlugs: ["carrara-quartz", "arctic-cloud", "linen-sand"]
   },
   {
@@ -52,7 +52,7 @@ export const collections: Collection[] = [
     tagline: "Statement slabs with sculptural depth",
     description:
       "Hand-selected marble with expressive character, ideal for feature islands, vanities and custom details.",
-    image: "/images/gallery-5.jpg",
+    image: "/images/collections/Taj-Mahal2.webp",
     stoneSlugs: ["calacatta-gold", "ivory-vein"]
   }
 ];
@@ -60,12 +60,12 @@ export const collections: Collection[] = [
 export const stones: Stone[] = [
   {
     id: "st-01",
-    slug: "calacatta-gold",
-    name: "Calacatta Gold",
+    slug: "taj-mahal",
+    name: "Taj Mahal",
     type: "Marble",
-    origin: "Italy",
+    origin: "brazil",
     collectionId: "atelier-marble",
-    image: "/images/gallery-1.jpg",
+    image: "/images/collections/Taj-Mahal2.webp",
     tone: "Warm White",
     description: "Soft ivory field with warm golden veining and elegant movement.",
     finishes: ["Polished", "Honed"],
@@ -78,7 +78,7 @@ export const stones: Stone[] = [
     type: "Granite",
     origin: "India",
     collectionId: "classic-granite",
-    image: "/images/gallery-2.jpg",
+    image: "/images/collections/black-galaxy.webp",
     tone: "Deep Black",
     description: "Dense black granite with subtle reflective minerals for bold contrast.",
     finishes: ["Polished", "Leathered"],
@@ -86,12 +86,12 @@ export const stones: Stone[] = [
   },
   {
     id: "st-03",
-    slug: "carrara-quartz",
-    name: "Carrara Quartz",
+    slug: "calcata-quartz",
+    name: "Calacata Quartz",
     type: "Quartz",
     origin: "Engineered Surface",
     collectionId: "signature-quartz",
-    image: "/images/gallery-3.jpg",
+    image: "/images/collections/calacata-quartz.webp",
     tone: "Cool White",
     description: "Clean white quartz with subtle gray veining and balanced pattern.",
     finishes: ["Polished", "Suede"],
@@ -104,7 +104,7 @@ export const stones: Stone[] = [
     type: "Granite",
     origin: "Brazil",
     collectionId: "classic-granite",
-    image: "/images/gallery-4.jpg",
+    image: "/images/collections/blue-bahia.webp",
     tone: "Royal Blue",
     description: "Rare blue granite with rich mineral texture and luxurious visual impact.",
     finishes: ["Polished"],
@@ -112,12 +112,12 @@ export const stones: Stone[] = [
   },
   {
     id: "st-05",
-    slug: "ivory-vein",
-    name: "Ivory Vein",
+    slug: "blanco-carrara",
+    name: "Blanco Carrara",
     type: "Marble",
-    origin: "Turkey",
+    origin: "Italy",
     collectionId: "atelier-marble",
-    image: "/images/gallery-6.jpg",
+    image: "/images/collections/blanco-carrera.webp",
     tone: "Ivory Beige",
     description: "Subtle beige marble with linear veins for soft, calm interiors.",
     finishes: ["Honed", "Brushed"],
@@ -125,12 +125,12 @@ export const stones: Stone[] = [
   },
   {
     id: "st-06",
-    slug: "imperial-silver",
-    name: "Imperial Silver",
+    slug: "silver-blue",
+    name: "Silver Blue",
     type: "Granite",
     origin: "Brazil",
     collectionId: "classic-granite",
-    image: "/images/gallery-8.jpg",
+    image: "/images/collections/Silver-Blue.webp",
     tone: "Silver Gray",
     description: "Multi-tone silver granite with layered movement and refined depth.",
     finishes: ["Polished", "Flamed"],
@@ -138,27 +138,27 @@ export const stones: Stone[] = [
   },
   {
     id: "st-07",
-    slug: "arctic-cloud",
-    name: "Arctic Cloud",
+    slug: "Calacata-Oro",
+    name: "Calacata Oro",
     type: "Quartz",
     origin: "Engineered Surface",
     collectionId: "signature-quartz",
-    image: "/images/gallery-5.jpg",
+    image: "/images/collections/Calacata-Oro.webp",
     tone: "Soft White",
-    description: "Light quartz body with delicate cloud veining and low visual noise.",
+    description: "Light quartz body with veining and low visual noise.",
     finishes: ["Polished"],
     applications: ["Open kitchens", "Island waterfalls", "Commercial counters"]
   },
   {
     id: "st-08",
-    slug: "linen-sand",
-    name: "Linen Sand",
+    slug: "calacata-black-vein",
+    name: "Calacata Black Vein",
     type: "Quartz",
     origin: "Engineered Surface",
     collectionId: "signature-quartz",
-    image: "/images/gallery-7.jpg",
-    tone: "Warm Beige",
-    description: "Warm neutral quartz with a sand-like texture and minimal pattern.",
+    image: "/images/collections/Calacatta-Black-Vein.webp",
+    tone: "Bright White",
+    description: "Warm neutral quartz with a black vein texture and minimal pattern.",
     finishes: ["Matte", "Polished"],
     applications: ["Family kitchens", "Mudrooms", "Custom furniture tops"]
   }

@@ -21,8 +21,8 @@ export const projects: Project[] = [
     tagline: "A bright kitchen centered on a full-height island.",
     location: "Lower Gwynedd, PA",
     completedAt: "2025-11",
-    heroImage: "/images/gallery-1.jpg",
-    galleryImages: ["/images/gallery-2.jpg", "/images/gallery-7.jpg", "/images/gallery-3.jpg"],
+    heroImage: "/images/portfolio/countertop-taj-mahal.webp",
+    galleryImages: ["/images/portfolio/pr-01/1.webp", "/images/portfolio/pr-01/2.webp", "/images/portfolio/pr-01/3.webp"],
     summary:
       "Full renovation with a waterfall island and perimeter counters. The final palette was designed to maximize natural light while keeping high daily durability.",
     scope: [
@@ -31,18 +31,18 @@ export const projects: Project[] = [
       "Perimeter counter installation",
       "Final sealing and quality check"
     ],
-    materials: ["calacatta-gold", "carrara-quartz"],
+    materials: ["taj-mahal"],
     featured: true
   },
   {
     id: "pr-02",
-    slug: "doylestown-luxury-bath-suite",
-    title: "Doylestown Luxury Bath Suite",
-    tagline: "Soft marble tones for a spa-style master bathroom.",
+    slug: "calacata-black-vein",
+    title: "Calacatta Black Vein",
+    tagline: "Bright White Base with Bold Black Veining",
     location: "Doylestown, PA",
     completedAt: "2025-09",
-    heroImage: "/images/gallery-6.jpg",
-    galleryImages: ["/images/gallery-5.jpg", "/images/gallery-1.jpg", "/images/gallery-4.jpg"],
+    heroImage: "/images/portfolio/pr-02/model3.jpg",
+    galleryImages: ["/images/portfolio/pr-02/model12.webp", "/images/portfolio/pr-02/model3.jpg", "/images/portfolio/pr-02/model15.webp"],
     summary:
       "Custom vanity surfaces and shower accents with seamless transitions. Designed for visual calm, moisture resistance and easy long-term maintenance.",
     scope: [

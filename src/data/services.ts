@@ -73,42 +73,42 @@ export const serviceAreas: ServiceArea[] = [
     id: "kitchens",
     title: "Kitchens",
     description: "Full countertop planning and installation tailored to daily cooking and entertaining.",
-    image: "/images/gallery-1.jpg",
+    image: "/images/services/kitchen.png",
     alt: "Granite kitchen countertop installation"
   },
   {
     id: "islands",
     title: "Kitchen Islands",
     description: "Large-format island fabrication with careful seam planning and edge detailing.",
-    image: "/images/services/islan.png",
+    image: "/images/services/islands.png",
     alt: "Stone kitchen island with polished edge"
   },
   {
     id: "vanities",
     title: "Vanities",
     description: "Bathroom vanity tops cut for sinks, fixtures, and clean moisture-ready finishes.",
-    image: "/images/gallery-3.jpg",
+    image: "/images/services/vanities.png",
     alt: "Bathroom vanity with stone top"
   },
   {
     id: "backsplashes",
     title: "Backsplashes",
     description: "Stone backsplash solutions that tie your wall surface into the countertop design.",
-    image: "/images/gallery-4.jpg",
+    image: "/images/services/backsplash.png",
     alt: "Kitchen backsplash detail in natural stone"
   },
   {
     id: "countertops",
     title: "Countertops",
     description: "Granite, quartz, and marble countertop fabrication for residential and commercial spaces.",
-    image: "/images/gallery-5.jpg",
+    image: "/images/services/countertops.png",
     alt: "Quartz countertop surface close-up"
   },
   {
     id: "breakfast-bars",
     title: "Breakfast Bars",
     description: "Integrated breakfast bar surfaces designed for comfort, durability, and style.",
-    image: "/images/gallery-6.jpg",
+    image: "/images/services/breakfast-bars.png",
     alt: "Breakfast bar stone overhang seating area"
   }
 ];
