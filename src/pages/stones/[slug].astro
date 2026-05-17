@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { collections, getCollectionById, stones } from "../../data/catalog";
+import { siteConfig } from "../../data/site";
 
 export function getStaticPaths() {
   return stones.map((stone) => ({ params: { slug: stone.slug }, props: { stone } }));
@@ -16,9 +17,25 @@ const canonical = `https://www.alliancegranitequartz.com/stones/${stone.slug}`;
 const related = stones
   .filter((item) => item.collectionId === stone.collectionId && item.slug !== stone.slug)
   .slice(0, 3);
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: stone.name,
+  description: stone.description,
+  image: new URL(stone.image, siteConfig.siteUrl).href,
+  brand: { "@type": "Brand", name: "Alliance Granite & Quartz" },
+  material: stone.type,
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/InStock",
+    url: canonical,
+    seller: { "@type": "Organization", name: "Alliance Granite & Quartz" }
+  }
+};
 ---
 
-<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+<Layout title={pageTitle} description={pageDescription} canonical={canonical} schema={productSchema}>
   <main class="bg-[#0b0b0b] pt-28 text-white">
     <section class="mx-auto grid max-w-7xl gap-10 px-6 pb-20 md:grid-cols-2 md:pt-10">
       <div class="overflow-hidden border border-white/10 bg-[#101010]" data-reveal>

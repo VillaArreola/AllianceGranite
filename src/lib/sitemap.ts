@@ -38,8 +38,34 @@ export const buildSitemapIndexXml = (paths: string[]) => {
   return `<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${entries}</sitemapindex>`;
 };
 
+type ChangeFreq = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+
+interface UrlMeta {
+  changefreq: ChangeFreq;
+  priority: string;
+}
+
+const urlMeta: Record<string, UrlMeta> = {
+  '/': { changefreq: 'daily', priority: '1.0' },
+  '/collections/': { changefreq: 'weekly', priority: '0.8' },
+  '/services/': { changefreq: 'weekly', priority: '0.8' },
+  '/portfolio/': { changefreq: 'weekly', priority: '0.8' },
+  '/stones/': { changefreq: 'weekly', priority: '0.8' },
+  '/about/': { changefreq: 'monthly', priority: '0.7' },
+  '/contact/': { changefreq: 'monthly', priority: '0.7' },
+  '/policies/': { changefreq: 'yearly', priority: '0.3' },
+  '/terms/': { changefreq: 'yearly', priority: '0.3' },
+};
+
+const buildUrlEntry = (path: string, lastmod: string): string => {
+  const meta = urlMeta[path] ?? { changefreq: 'weekly' as ChangeFreq, priority: '0.6' };
+  const loc = xmlEscape(sitemapUrl(path));
+  return `<url><loc>${loc}</loc><lastmod>${lastmod}</lastmod><changefreq>${meta.changefreq}</changefreq><priority>${meta.priority}</priority></url>`;
+};
+
 export const buildUrlsetXml = (paths: string[]) => {
-  const entries = paths.map((path) => `<url><loc>${xmlEscape(sitemapUrl(path))}</loc></url>`).join('');
+  const lastmod = new Date().toISOString().split('T')[0];
+  const entries = paths.map((path) => buildUrlEntry(path, lastmod)).join('');
 
   return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${entries}</urlset>`;
 };

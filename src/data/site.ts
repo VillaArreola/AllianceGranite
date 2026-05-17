@@ -2,12 +2,22 @@ export const siteConfig = {
   siteName: "Alliance Granite & Quartz",
   siteUrl: "https://www.alliancegranitequartz.com/",
   language: "en",
-  title: "Premium Granite & Quartz Kitchen Countertops | Alliance | Alliance Granite & Quartz",
+  title: "Granite & Quartz Countertops | Alliance Granite & Quartz",
   description:
-    "Discover a stunning selection of premium granite and quartz products at Alliance Granite & Quartz. Specializing in exquisite kitchen countertops, we offer a variety of neutral granite colors and white options. Visit us today to explore our beautiful granite products!",
-  keywords: ["premium granite products", "quartz products", "kitchen countertops"],
+    "Premium granite and quartz countertops crafted for your kitchen. Explore our selection of natural granite and engineered quartz surfaces. Serving Palm, PA and the greater Philadelphia area.",
+  keywords: [
+    "premium granite products",
+    "quartz products",
+    "kitchen countertops",
+    "granite countertops Palm PA",
+    "quartz countertops Philadelphia",
+    "marble countertops",
+    "kitchen remodel PA",
+    "countertop installation",
+    "natural stone surfaces"
+  ],
   ogImage: "/images/alliance.jpg",
-  ogImageAlt: "",
+  ogImageAlt: "Alliance Granite & Quartz — Premium kitchen countertops near Philadelphia",
   favicon: {
     icon16: "/images/favicon-16x16.png",
     icon32: "/images/favicon-32x32.png",
@@ -18,7 +28,7 @@ export const siteConfig = {
     phone: "267 320 2113",
     email: "contact@alliancegranitequartz.com",
     address: "1862 Tollgate Rd Unit 3A, Palm, PA 18070",
-    hours: "Mon-Sat 9am"
+    hours: "Mon–Sat, 9am–5pm"
   },
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61566331843330",
