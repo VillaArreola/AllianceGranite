@@ -1,5 +1,18 @@
 ---
 import { siteConfig } from "../data/site";
+
+const footerLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/services" },
+  { label: "Collections", href: "/collections" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Stones", href: "/stones" },
+  { label: "Reviews", href: "/#reviews" },
+  { label: "Contact", href: "/contact" },
+  { label: "Terms", href: "/terms" },
+  { label: "Policies", href: "/policies" }
+];
 ---
 
 <footer class="relative overflow-hidden bg-[#080808] px-6 py-20 text-white">
@@ -37,9 +50,9 @@ import { siteConfig } from "../data/site";
       <div>
         <p class="mb-5 text-[10px] uppercase tracking-[0.3em] text-white/30">Navigation</p>
         <ul class="space-y-3 text-sm text-white/50">
-          {["Home", "About", "Collections", "Services", "Reviews", "Contact"].map((link) => (
+          {footerLinks.map((link) => (
             <li>
-              <a href={`#${link.toLowerCase()}`} class="transition hover:text-[#c9a84c]">{link}</a>
+              <a href={link.href} class="transition hover:text-[#c9a84c]">{link.label}</a>
             </li>
           ))}
         </ul>
@@ -69,6 +82,19 @@ import { siteConfig } from "../data/site";
     <!-- Bottom bar -->
     <div class="flex flex-col items-center justify-between gap-4 pt-8 text-[11px] uppercase tracking-widest text-white/20 md:flex-row">
       <p>&copy; {new Date().getFullYear()} Alliance Granite &amp; Quartz. All rights reserved.</p>
+      <p>
+        <span class="text-white/30">|</span>
+        <span class="mx-2">Designed by</span>
+        <a
+          href="https://www.villaarreola.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-white/50 transition hover:text-[#c9a84c]"
+        >
+          Martin Villa
+        </a>
+        <span class="ml-2 text-white/30">|</span>
+      </p>
       <p>Palm, PA &mdash; Serving the Greater Philadelphia Area</p>
     </div>
 

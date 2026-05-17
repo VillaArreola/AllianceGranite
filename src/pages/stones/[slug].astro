@@ -1,0 +1,95 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { collections, getCollectionById, stones } from "../../data/catalog";
+
+export function getStaticPaths() {
+  return stones.map((stone) => ({ params: { slug: stone.slug }, props: { stone } }));
+}
+
+const { stone } = Astro.props;
+const collection = getCollectionById(stone.collectionId);
+
+const pageTitle = `${stone.name} | Alliance Granite & Quartz`;
+const pageDescription = `${stone.name} from ${stone.origin}. ${stone.description}`;
+const canonical = `https://www.alliancegranitequartz.com/stones/${stone.slug}`;
+
+const related = stones
+  .filter((item) => item.collectionId === stone.collectionId && item.slug !== stone.slug)
+  .slice(0, 3);
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <main class="bg-[#0b0b0b] pt-28 text-white">
+    <section class="mx-auto grid max-w-7xl gap-10 px-6 pb-20 md:grid-cols-2 md:pt-10">
+      <div class="overflow-hidden border border-white/10 bg-[#101010]" data-reveal>
+        <img src={stone.image} alt={stone.name} class="h-full w-full object-cover" />
+      </div>
+
+      <div class="space-y-7" data-reveal data-reveal-delay="2">
+        <p class="text-[10px] uppercase tracking-[0.35em] text-[#c9a84c]/80">{collection?.name ?? "Stone Detail"}</p>
+        <h1 class="font-serif text-4xl leading-tight md:text-6xl">{stone.name}</h1>
+        <p class="text-sm uppercase tracking-[0.24em] text-white/45">{stone.type} . {stone.origin} . {stone.tone}</p>
+        <p class="max-w-xl text-base leading-relaxed text-white/65">{stone.description}</p>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="border border-white/10 bg-[#111111] p-5">
+            <p class="mb-2 text-[10px] uppercase tracking-[0.3em] text-[#c9a84c]/80">Finishes</p>
+            <ul class="space-y-2 text-sm text-white/70">
+              {stone.finishes.map((finish) => <li>{finish}</li>)}
+            </ul>
+          </div>
+          <div class="border border-white/10 bg-[#111111] p-5">
+            <p class="mb-2 text-[10px] uppercase tracking-[0.3em] text-[#c9a84c]/80">Best Applications</p>
+            <ul class="space-y-2 text-sm text-white/70">
+              {stone.applications.map((application) => <li>{application}</li>)}
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/contact"
+            class="border border-[#c9a84c] px-8 py-3 text-[10px] uppercase tracking-[0.3em] text-white transition hover:bg-[#c9a84c] hover:text-stone-900"
+          >
+            Request Quote
+          </a>
+          <a
+            href="/stones"
+            class="border border-white/20 px-8 py-3 text-[10px] uppercase tracking-[0.3em] text-white/70 transition hover:border-[#c9a84c] hover:text-[#c9a84c]"
+          >
+            Back to Stones
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-white/10 bg-[#101010] py-20">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="mb-10" data-reveal>
+          <p class="mb-2 text-[10px] uppercase tracking-[0.35em] text-[#c9a84c]/80">Related in Collection</p>
+          <h2 class="font-serif text-3xl md:text-4xl">Explore Similar Stones</h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          {related.map((item, index) => (
+            <a href={`/stones/${item.slug}`} class="group overflow-hidden border border-white/10 bg-[#121212]" data-reveal data-reveal-delay={String(index + 1)}>
+              <div class="aspect-[4/3] overflow-hidden">
+                <img src={item.image} alt={item.name} class="h-full w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
+              </div>
+              <div class="space-y-2 p-5">
+                <p class="text-[10px] uppercase tracking-[0.3em] text-white/40">{item.type}</p>
+                <h3 class="font-serif text-2xl">{item.name}</h3>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {related.length === 0 && (
+          <p class="text-sm text-white/60" data-reveal>
+            This stone currently has no additional siblings in the same collection.
+          </p>
+        )}
+      </div>
+    </section>
+  </main>
+</Layout>

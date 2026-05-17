@@ -42,31 +42,38 @@ const services = [
           and durability.
         </p>
         <a
-          href="#contact"
+          href="/collections"
           class="border border-white/20 px-8 py-3 text-[10px] uppercase tracking-[0.3em] text-white transition hover:border-[#c9a84c] hover:text-[#c9a84c]"
         >
           View Full Catalog
         </a>
       </div>
 
-      <!-- Right: staggered images -->
-      <div class="grid grid-cols-2 gap-4 md:w-1/2" data-reveal data-reveal-delay="3">
-        <div class="aspect-[3/4] overflow-hidden bg-white/5">
+      <!-- Right: stylized slab cards -->
+      <div class="grid grid-cols-2 gap-5 md:w-1/2 md:gap-7" data-reveal data-reveal-delay="3">
+        <article class="group relative aspect-[3/4] overflow-hidden rounded-[2px] border border-white/10 bg-[#171717] shadow-[0_20px_45px_rgba(0,0,0,0.5)] transition-transform duration-500 transform-gpu [transform:perspective(1200px)_rotateY(-3.5deg)] hover:[transform:perspective(1200px)_rotateY(-2deg)_translateY(-4px)_rotate(-0.5deg)]">
+          <div class="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-white/12 via-transparent to-transparent opacity-70"></div>
+          <div class="pointer-events-none absolute -right-10 top-8 z-10 h-20 w-20 rounded-full bg-[#c9a84c]/20 blur-2xl transition-opacity duration-500 group-hover:opacity-90"></div>
           <img
             src={images[0].src}
             alt={images[0].alt}
-            class="h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
+            class="h-full w-full scale-[1.03] object-cover saturate-75 brightness-90 contrast-110 transition duration-700 group-hover:scale-[1.08] group-hover:saturate-100 group-hover:brightness-100"
             loading="lazy"
           />
-        </div>
-        <div class="mt-12 aspect-[3/4] overflow-hidden bg-white/5">
+          <div class="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-20 bg-gradient-to-t from-black/45 to-transparent"></div>
+        </article>
+
+        <article class="group relative mt-10 aspect-[3/4] overflow-hidden rounded-[2px] border border-white/10 bg-[#171717] shadow-[0_24px_52px_rgba(0,0,0,0.58)] transition-transform duration-500 transform-gpu [transform:perspective(1200px)_rotateY(3.5deg)] hover:[transform:perspective(1200px)_rotateY(2deg)_translateY(-4px)_rotate(0.5deg)] md:mt-14">
+          <div class="pointer-events-none absolute inset-0 z-10 bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-60"></div>
+          <div class="pointer-events-none absolute -left-10 bottom-8 z-10 h-20 w-20 rounded-full bg-[#c9a84c]/20 blur-2xl transition-opacity duration-500 group-hover:opacity-90"></div>
           <img
             src={images[1].src}
             alt={images[1].alt}
-            class="h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
+            class="h-full w-full scale-[1.03] object-cover saturate-75 brightness-90 contrast-110 transition duration-700 group-hover:scale-[1.08] group-hover:saturate-100 group-hover:brightness-100"
             loading="lazy"
           />
-        </div>
+          <div class="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-20 bg-gradient-to-t from-black/45 to-transparent"></div>
+        </article>
       </div>
 
     </div>
