@@ -23,6 +23,39 @@ Client project — business website for **Alliance Granite & Quartz**, a premium
 ## Project Structure
 
 ```
+
+## Run Locally
+
+```bash
+npm install
+npm run dev
+```
+
+## Deploy to Cloudflare Pages
+
+This repo is configured with Wrangler for a one-command deploy.
+
+1. Create a Cloudflare Pages project (first time only) in Cloudflare dashboard.
+2. Use the same project name as the script default: `alliance-granite`.
+3. Authenticate once from this machine:
+
+```bash
+npm run cf:login
+```
+
+4. Deploy in one command:
+
+```bash
+npm run release
+```
+
+The deploy command builds Astro and uploads `dist/` to Cloudflare Pages.
+
+If your Cloudflare Pages project uses a different name, update this script in `package.json`:
+
+```json
+"cf:deploy": "npm run build && wrangler pages deploy dist --project-name YOUR_PROJECT_NAME"
+```
 public/
   images/          # Local images (hero, gallery, logo)
 src/
