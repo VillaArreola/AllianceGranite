@@ -103,10 +103,12 @@ const localBusinessSchema = {
     <meta name="twitter:image" content={absoluteOgImage} />
     <meta name="twitter:image:alt" content={ogImageAlt} />
 
-    <link rel="icon" sizes="16x16" href={siteConfig.favicon.icon16} />
-    <link rel="icon" sizes="32x32" href={siteConfig.favicon.icon32} />
-    <link rel="icon" sizes="192x192" href={siteConfig.favicon.icon192} />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href={siteConfig.favicon.icon16} />
+    <link rel="icon" type="image/png" sizes="32x32" href={siteConfig.favicon.icon32} />
+    <link rel="icon" type="image/png" sizes="192x192" href={siteConfig.favicon.icon192} />
     <link rel="apple-touch-icon" href={siteConfig.favicon.appleTouch} />
+    <link rel="manifest" href="/images/site.webmanifest" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

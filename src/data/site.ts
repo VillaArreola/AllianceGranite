@@ -9,10 +9,10 @@ export const siteConfig = {
   ogImage: "/images/alliance.jpg",
   ogImageAlt: "",
   favicon: {
-    icon16: "/images/logo.png",
-    icon32: "/images/logo.png",
-    icon192: "/images/logo.png",
-    appleTouch: "/images/logo.png"
+    icon16: "/images/favicon-16x16.png",
+    icon32: "/images/favicon-32x32.png",
+    icon192: "/images/android-chrome-192x192.png",
+    appleTouch: "/images/apple-touch-icon.png"
   },
   contact: {
     phone: "267 320 2113",

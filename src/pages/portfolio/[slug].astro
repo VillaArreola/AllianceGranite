@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import ShareButtons from "../../components/ShareButtons.astro";
 import { getFeaturedProjects, getProjectBySlug } from "../../data/portfolio";
 import { stones } from "../../data/catalog";
 import type { Project } from "../../data/portfolio";
@@ -26,9 +27,16 @@ const relatedProjects: Project[] = getFeaturedProjects()
 const pageTitle = `${project.title} | Portfolio | Alliance Granite & Quartz`;
 const pageDescription = `${project.title} in ${project.location}. ${project.summary}`;
 const canonical = `https://www.alliancegranitequartz.com/portfolio/${project.slug}`;
+const ogImageAlt = `${project.title} - Premium granite and quartz kitchen countertop project`;
 ---
 
-<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+<Layout 
+  title={pageTitle} 
+  description={pageDescription} 
+  canonical={canonical}
+  ogImage={project.heroImage}
+  ogImageAlt={ogImageAlt}
+>
   <main class="bg-[#0b0b0b] pt-28 text-white">
     <section class="mx-auto grid max-w-7xl gap-10 px-6 pb-20 md:grid-cols-2 md:pt-10">
       <div class="overflow-hidden border border-white/10 bg-[#101010]" data-reveal>
@@ -75,6 +83,12 @@ const canonical = `https://www.alliancegranitequartz.com/portfolio/${project.slu
             </div>
           ))}
         </div>
+
+        <ShareButtons
+          title={project.title}
+          url={canonical}
+          description={project.summary}
+        />
       </div>
     </section>
 
